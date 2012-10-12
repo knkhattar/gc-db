@@ -5,7 +5,8 @@
 * functions, variables etc.
 *
 * */
-CREATE OR REPLACE
+
+create or replace
 PACKAGE employee_management
 AS
   /*
@@ -13,30 +14,31 @@ AS
   * */
 FUNCTION create_employee
   (
-    last_name      VARCHAR2,
-    job_id         VARCHAR2,
-    manager_id     NUMBER,
-    salary         NUMBER,
-    commission_pct NUMBER,
-    department_id  NUMBER)
+    p_last_name     VARCHAR2,
+    p_job_id        VARCHAR2,
+    p_manager_id    NUMBER,
+    p_salary        NUMBER,
+    p_department_id NUMBER,
+    p_email         VARCHAR2,
+    p_hire_date     VARCHAR2)
   RETURN NUMBER;
   /*Delete employee procedure */
 PROCEDURE delete_employee
   (
-    employee_id NUMBER);
+    p_employee_id NUMBER);
   /*
   * Find employee function.
   * */
 FUNCTION read_employee
   (
-    employee_id NUMBER )
+    p_employee_id NUMBER )
   RETURN VARCHAR2;
   /*
   * Update employee function.
   * */
 FUNCTION update_employee
   (
-    employee_id NUMBER,
-    salary      NUMBER )
-  RETURN NUMBER;
+    p_employee_id NUMBER,
+    p_salary      NUMBER ) RETURN VARCHAR2;
+    
 END employee_management;
